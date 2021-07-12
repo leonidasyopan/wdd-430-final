@@ -7,7 +7,7 @@ module.exports = router;
 
 router.get('/', (req, res, next) => {
   Product.find()
-    .populate('group')
+    .populate('actualPrice')
     .then(products => {
       res.status(200).json({
           message: 'Products fetched successfully!',
@@ -28,10 +28,10 @@ router.post('/', (req, res, next) => {
   const product = new Product({
     id: maxProductId,
     name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    imageUrl: req.body.imageUrl,
-    group: req.body.group
+    description: req.body.description,
+    quantity: req.body.quantity,
+    expectedPrice: req.body.expectedPrice,
+    actualPrice: req.body.actualPrice
   });
 
   product.save()
@@ -53,10 +53,10 @@ router.put('/:id', (req, res, next) => {
   Product.findOne({ id: req.params.id })
     .then(product => {
       product.name = req.body.name;
-      product.email = req.body.email;
-      product.phone = req.body.phone;
-      product.imageUrl = req.body.imageUrl;
-      product.group = req.body.group;
+      product.description = req.body.description;
+      product.quantity = req.body.quantity;
+      product.expectedPrice = req.body.expectedPrice;
+      product.actualPrice = req.body.actualPrice;
 
       Product.updateOne({ id: req.params.id }, product)
         .then(result => {

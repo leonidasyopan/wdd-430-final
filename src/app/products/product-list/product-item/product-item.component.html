@@ -7,7 +7,10 @@
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ product?.name }}</h4>
   </div>
-  <span class="pull-right">
-    <img src="{{ product?.imageUrl }}" alt="" class="img-responsive" style="max-height: 60px;">
-  </span>
+  <div>
+    <p>{{ product?.description }} </p>
+    <p>{{ product?.quantity }} </p>
+    <p>{{ product?.expectedPrice }} </p>
+    <p>{{ product?.actualPrice }} </p>
+  </div>
 </a>

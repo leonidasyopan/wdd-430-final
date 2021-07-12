@@ -20,54 +20,52 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="email">Email:</label>
+          <label for="description">Description:</label>
           <input
             type="text"
-            id="email"
-            name="email"
-            [ngModel]="product?.email"
+            id="description"
+            name="description"
+            [ngModel]="product?.description"
             required
-            #email="ngModel"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+            #description="ngModel"
             class="form-control required"
             size="120"
             max="255"
           />
-          <div *ngIf="!email.valid && email.touched" class="red-font">
-            <p>Enter a valid Email address</p>
-          </div>
+          <!-- <div *ngIf="!description.valid && description.touched" class="red-font">
+            <p>Enter a valid Description address</p>
+          </div> -->
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="phone">Phone:</label>
+          <label for="quantity">Quantity:</label>
           <input
-            type="text"
-            id="phone"
-            name="phone"
-            [ngModel]="product?.phone"
-            #phone="ngModel"
-            pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*"
+            type="number"
+            id="quantity"
+            name="quantity"
+            [ngModel]="product?.quantity"
+            #quantity="ngModel"
             class="form-control invalid"
             size="150"
             max="255"
           />
-          <div *ngIf="!phone.valid && phone.touched" class="red-font">
-            <p>Enter a valid phone number</p>
-          </div>
+          <!-- <div *ngIf="!quantity.valid && quantity.touched" class="red-font">
+            <p>Enter a valid quantity number</p>
+          </div> -->
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="imageUrl">Image URL:</label>
+          <label for="expectedPrice">Expected Price:</label>
           <input
             type="text"
-            id="imageUrl"
-            name="imageUrl"
-            [ngModel]="product?.imageUrl"
-            #imageUrl="ngModel"
+            id="expectedPrice"
+            name="expectedPrice"
+            [ngModel]="product?.expectedPrice"
+            #expectedPrice="ngModel"
             class="form-control"
             size="150"
             max="255"
@@ -76,50 +74,26 @@
       </div>
 
       <div class="row">
-        <div class="form-group-list">
-          <label for="groupList">Group Products:</label>
-
-          <div *ngIf="!isValidProduct" class="alert alert-danger">
-            <p>
-              Product can not be added to the group. It is already in the group
-              or it is the currenct product.
-            </p>
-          </div>
-
-          <div
-            class="row"
-            id="groupList"
-            style="min-height: 3rem"
-            dnd-droppable
-            [dropZones]="['productGroup']"
-            (onDropSuccess)="addToGroup($event)"
-          >
-            <div *ngFor="let product of groupProducts; let i = index">
-              <div>
-                <shopping-list-product-item
-                  class="col-sm-11"
-                  [product]="product"
-                ></shopping-list-product-item>
-                <button
-                  class="btn btn-danger col-sm-2 deleteButton"
-                  (click)="onRemoveItem(i)"
-                >
-                  X
-                </button>
-              </div>
-            </div>
-            <span class="dragMsg" *ngIf="groupProducts?.length < 1"
-              >Drag products in group here</span
-            >
-          </div>
+        <div class="col-sm-12 form-group">
+          <label for="actualPrice">Actual Price:</label>
+          <input
+            type="text"
+            id="actualPrice"
+            name="actualPrice"
+            [ngModel]="product?.actualPrice"
+            #actualPrice="ngModel"
+            class="form-control"
+            size="150"
+            max="255"
+          />
         </div>
       </div>
 
       <div
-        *ngIf="(!name.valid && name.touched) || (!email.valid && email.touched)"
+        *ngIf="(!name.valid && name.touched) || (!quantity.valid && quantity.touched)"
         class="alert alert-danger"
       >
-        <p>The Name and Email fields are required.</p>
+        <p>The Name and Quantity fields are required.</p>
       </div>
 
       <div class="row">
@@ -127,7 +101,7 @@
           <button
             class="btn btn-success"
             type="submit"
-            [disabled]="!email.valid"
+            [disabled]="!name.valid"
           >
             Save
           </button>

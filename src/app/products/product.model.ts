@@ -2,9 +2,9 @@ export class Product {
   constructor (
     public id: string,
     public name: string,
-    public email: string,
-    public phone: string,
-    public imageUrl: string,
-    public group: Product[]
+    public description: string,
+    public quantity: number,
+    public expectedPrice: number,
+    public actualPrice: number,
   ) { }
 }

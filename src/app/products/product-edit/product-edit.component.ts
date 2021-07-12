@@ -40,9 +40,9 @@ export class ProductEditComponent implements OnInit {
 
           this.product = JSON.parse(JSON.stringify(this.originalProduct));
 
-          if(this.product.group?.length > 0) {
-            this.groupProducts = JSON.parse(JSON.stringify(this.product.group));
-          }
+          // if(this.product.group?.length > 0) {
+          //   this.groupProducts = JSON.parse(JSON.stringify(this.product.group));
+          // }
         }
       )
   }
@@ -53,9 +53,8 @@ export class ProductEditComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newProduct = new Product(this.id, value.name, value.email, value.phone, value.imageUrl, this.groupProducts);
+    const newProduct = new Product(this.id, value.name, value.description, value.quantity, value.expectedPrice, value.actualPrice);
     if(this.editMode) {
-      newProduct.group = this.groupProducts;
       this.productService.updateProduct(this.originalProduct, newProduct);
     } else {
       this.productService.addProduct(newProduct);

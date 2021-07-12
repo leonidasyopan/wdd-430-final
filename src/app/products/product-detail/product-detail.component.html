@@ -3,12 +3,7 @@
     <h3>{{ product?.name }}</h3>
     <div class="header-image-and-buttons">
       <div class="pull-left">
-        <img
-          src="{{ product?.imageUrl }}"
-          alt=""
-          class="img-responsive"
-          style="max-height: 90px"
-        />
+        <p>Select a Product to Edit or Delete</p>
       </div>
       <div class="pull-right">
         <a
@@ -23,8 +18,10 @@
   </header>
   <div class="row">
     <div class="col-xs-12">
-      <p><strong>Email:</strong> {{ product?.email }}</p>
-      <p><strong>Phone:</strong> {{ product?.phone }}</p>
+      <p><strong>Description:</strong> {{ product?.description }}</p>
+      <p><strong>Quantity:</strong> {{ product?.quantity }}</p>
+      <p><strong>Expected Price:</strong> {{ product?.expectedPrice }}</p>
+      <p><strong>Actual Price:</strong> {{ product?.actualPrice }}</p>
     </div>
   </div>
 </section>
