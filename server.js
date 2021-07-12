@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const index = require('./server/routes/app');
-const contactsRoutes = require('./server/routes/contacts');
+const productsRoutes = require('./server/routes/products');
 
 const app = express();
 
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'dist/shopping-list')));
 
 app.use('/', index);
-app.use('/contacts', contactsRoutes);
+app.use('/products', productsRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/shopping-list/index.html'));

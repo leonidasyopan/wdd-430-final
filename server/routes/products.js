@@ -1,17 +1,17 @@
 const sequenceGenerator = require('./sequenceGenerator');
-const Contact = require('../models/contact');
+const Product = require('../models/product');
 
 var express = require('express');
 var router = express.Router();
 module.exports = router;
 
 router.get('/', (req, res, next) => {
-  Contact.find()
+  Product.find()
     .populate('group')
-    .then(contacts => {
+    .then(products => {
       res.status(200).json({
-          message: 'Contacts fetched successfully!',
-          contacts: contacts
+          message: 'Products fetched successfully!',
+          products: products
         });
     })
     .catch(error => {
@@ -23,10 +23,10 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const maxContactId = sequenceGenerator.nextId("contacts");
+  const maxProductId = sequenceGenerator.nextId("products");
 
-  const contact = new Contact({
-    id: maxContactId,
+  const product = new Product({
+    id: maxProductId,
     name: req.body.name,
     email: req.body.email,
     phone: req.body.phone,
@@ -34,11 +34,11 @@ router.post('/', (req, res, next) => {
     group: req.body.group
   });
 
-  contact.save()
-    .then(createdContact => {
+  product.save()
+    .then(createdProduct => {
       res.status(201).json({
-        message: 'Contact added successfully',
-        contact: createdContact
+        message: 'Product added successfully',
+        product: createdProduct
       });
     })
     .catch(error => {
@@ -50,18 +50,18 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-  Contact.findOne({ id: req.params.id })
-    .then(contact => {
-      contact.name = req.body.name;
-      contact.email = req.body.email;
-      contact.phone = req.body.phone;
-      contact.imageUrl = req.body.imageUrl;
-      contact.group = req.body.group;
+  Product.findOne({ id: req.params.id })
+    .then(product => {
+      product.name = req.body.name;
+      product.email = req.body.email;
+      product.phone = req.body.phone;
+      product.imageUrl = req.body.imageUrl;
+      product.group = req.body.group;
 
-      Contact.updateOne({ id: req.params.id }, contact)
+      Product.updateOne({ id: req.params.id }, product)
         .then(result => {
           res.status(204).json({
-            message: 'Contact updated successfully'
+            message: 'Product updated successfully'
           })
         })
         .catch(error => {
@@ -73,20 +73,20 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'Contact not found.',
-        error: { contact: 'Contact not found'}
+        message: 'Product not found.',
+        error: { product: 'Product not found'}
       });
     });
 });
 
 
 router.delete("/:id", (req, res, next) => {
-  Contact.findOne({ id: req.params.id })
-    .then(contact => {
-      Contact.deleteOne({ id: req.params.id })
+  Product.findOne({ id: req.params.id })
+    .then(product => {
+      Product.deleteOne({ id: req.params.id })
         .then(result => {
           res.status(204).json({
-            message: "Contact deleted successfully"
+            message: "Product deleted successfully"
           });
         })
         .catch(error => {
@@ -98,8 +98,8 @@ router.delete("/:id", (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: 'Contact not found.',
-        error: { contact: 'Contact not found.'}
+        message: 'Product not found.',
+        error: { product: 'Product not found.'}
       });
     });
 });

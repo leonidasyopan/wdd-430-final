@@ -1,0 +1,30 @@
+<section class="conctact-list-box">
+  <header>
+    <h3>{{ product?.name }}</h3>
+    <div class="header-image-and-buttons">
+      <div class="pull-left">
+        <img
+          src="{{ product?.imageUrl }}"
+          alt=""
+          class="img-responsive"
+          style="max-height: 90px"
+        />
+      </div>
+      <div class="pull-right">
+        <a
+          routerLink="{{ product?.id }}/edit"
+          class="btn btn-info spaced-button"
+          (click)="onEditProduct()"
+          >Edit</a
+        >
+        <a class="btn btn-danger spaced-button" (click)="onDelete()">Delete</a>
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-xs-12">
+      <p><strong>Email:</strong> {{ product?.email }}</p>
+      <p><strong>Phone:</strong> {{ product?.phone }}</p>
+    </div>
+  </div>
+</section>

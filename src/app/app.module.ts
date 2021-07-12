@@ -6,24 +6,24 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
-import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
-import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ProductsFilterPipe } from './products/products-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContactsComponent,
-    ContactListComponent,
-    ContactDetailComponent,
-    ContactItemComponent,
-    ContactEditComponent,
-    ContactsFilterPipe
+    ProductsComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductItemComponent,
+    ProductEditComponent,
+    ProductsFilterPipe
   ],
   imports: [
     BrowserModule,

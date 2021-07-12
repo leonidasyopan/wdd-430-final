@@ -3,35 +3,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
-import { Contact } from '../contact.model'
-import { ContactService } from '../contact.service';
+import { Product } from '../product.model'
+import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'shopping-list-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+  selector: 'shopping-list-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ContactListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
-  contacts: Contact[] = [];
+  products: Product[] = [];
 
   searchedTerm: string;
 
   constructor(
-    private contactService: ContactService,
+    private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.contacts = this.contactService.getContacts();
+    this.products = this.productService.getProducts();
 
-    this.subscription = this.contactService.contactListChangedEvent
+    this.subscription = this.productService.productListChangedEvent
       .subscribe(
-        (contactsList: Contact[]) => {
-          this.contacts = contactsList;
+        (productsList: Product[]) => {
+          this.products = productsList;
         }
       )
   }
@@ -40,7 +40,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  onNewContact() {
+  onNewProduct() {
     this.router.navigate(['new'], {relativeTo: this.route})
   }
 

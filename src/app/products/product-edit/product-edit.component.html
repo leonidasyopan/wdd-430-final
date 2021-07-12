@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form id="product-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="name">Name:</label>
@@ -8,12 +8,13 @@
             type="text"
             id="name"
             name="name"
-            [ngModel]="contact?.name"
+            [ngModel]="product?.name"
             required
             #name="ngModel"
             class="form-control required"
             size="120"
-            max="120">
+            max="120"
+          />
         </div>
       </div>
 
@@ -24,19 +25,17 @@
             type="text"
             id="email"
             name="email"
-            [ngModel]="contact?.email"
+            [ngModel]="product?.email"
             required
             #email="ngModel"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
             class="form-control required"
             size="120"
-            max="255">
-            <div
-              *ngIf="!email.valid && email.touched"
-              class="red-font"
-            >
-              <p>Enter a valid Email address</p>
-            </div>
+            max="255"
+          />
+          <div *ngIf="!email.valid && email.touched" class="red-font">
+            <p>Enter a valid Email address</p>
+          </div>
         </div>
       </div>
 
@@ -47,18 +46,16 @@
             type="text"
             id="phone"
             name="phone"
-            [ngModel]="contact?.phone"
+            [ngModel]="product?.phone"
             #phone="ngModel"
             pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*"
             class="form-control invalid"
             size="150"
-            max="255">
-            <div
-              *ngIf="!phone.valid && phone.touched"
-              class="red-font"
-            >
-              <p>Enter a valid phone number</p>
-            </div>
+            max="255"
+          />
+          <div *ngIf="!phone.valid && phone.touched" class="red-font">
+            <p>Enter a valid phone number</p>
+          </div>
         </div>
       </div>
 
@@ -69,37 +66,52 @@
             type="text"
             id="imageUrl"
             name="imageUrl"
-            [ngModel]="contact?.imageUrl"
+            [ngModel]="product?.imageUrl"
             #imageUrl="ngModel"
             class="form-control"
             size="150"
-            max="255">
+            max="255"
+          />
         </div>
       </div>
 
       <div class="row">
         <div class="form-group-list">
-          <label for="groupList">Group Contacts:</label>
+          <label for="groupList">Group Products:</label>
 
-          <div *ngIf="!isValidContact" class="alert alert-danger">
-            <p>Contact can not be added to the group. It is already in the group or it is the currenct contact.</p>
+          <div *ngIf="!isValidProduct" class="alert alert-danger">
+            <p>
+              Product can not be added to the group. It is already in the group
+              or it is the currenct product.
+            </p>
           </div>
 
-          <div class="row" id="groupList"
-              style="min-height: 3rem;"
-              dnd-droppable
-              [dropZones]="['contactGroup']"
-              (onDropSuccess)="addToGroup($event)">
-
-            <div *ngFor="let contact of groupContacts; let i = index">
+          <div
+            class="row"
+            id="groupList"
+            style="min-height: 3rem"
+            dnd-droppable
+            [dropZones]="['productGroup']"
+            (onDropSuccess)="addToGroup($event)"
+          >
+            <div *ngFor="let product of groupProducts; let i = index">
               <div>
-                <shopping-list-contact-item class="col-sm-11" [contact]="contact"></shopping-list-contact-item>
-                <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
+                <shopping-list-product-item
+                  class="col-sm-11"
+                  [product]="product"
+                ></shopping-list-product-item>
+                <button
+                  class="btn btn-danger col-sm-2 deleteButton"
+                  (click)="onRemoveItem(i)"
+                >
+                  X
+                </button>
               </div>
             </div>
-            <span class="dragMsg" *ngIf="groupContacts?.length < 1">Drag contacts in group here</span>
+            <span class="dragMsg" *ngIf="groupProducts?.length < 1"
+              >Drag products in group here</span
+            >
           </div>
-
         </div>
       </div>
 
@@ -110,18 +122,20 @@
         <p>The Name and Email fields are required.</p>
       </div>
 
-
       <div class="row">
         <div class="col-xs-12 btn-toolbar">
           <button
             class="btn btn-success"
             type="submit"
             [disabled]="!email.valid"
-          >Save</button>
-          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+          >
+            Save
+          </button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">
+            Cancel
+          </button>
         </div>
       </div>
-
     </form>
   </div>
 </div>

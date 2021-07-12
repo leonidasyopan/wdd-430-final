@@ -1,6 +1,6 @@
 var Sequence = require('../models/sequence');
 
-var maxContactId;
+var maxProductId;
 var sequenceId = null;
 
 function SequenceGenerator() {
@@ -15,7 +15,7 @@ function SequenceGenerator() {
       }
 
       sequenceId = sequence._id;
-      maxContactId = sequence.maxContactId;
+      maxProductId = sequence.maxProductId;
     });
 }
 
@@ -25,10 +25,10 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
   var nextId;
 
   switch (collectionType) {
-    case 'contacts':
-      maxContactId++;
-      updateObject = {maxContactId: maxContactId};
-      nextId = maxContactId;
+    case 'products':
+      maxProductId++;
+      updateObject = {maxProductId: maxProductId};
+      nextId = maxProductId;
       break;
     default:
       return -1;

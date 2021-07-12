@@ -6,7 +6,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
-            <span class="title pad-left-right">Contacts</span>
+            <span class="title pad-left-right">Products</span>
           </div>
           <div class="row">
             <div class="input-group pull-left pad-left-right col-xs-7">
@@ -20,7 +20,7 @@
               <i class="fa fa-search"></i>
             </div>
             <div class="pull-right pad-left-right">
-              <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
+              <a class="btn btn-success" [routerLink]="['new']">New Product</a>
             </div>
           </div>
         </div>
@@ -29,14 +29,14 @@
   </div>
   <div class="panel-body">
     <div class="center-panel">
-      <shopping-list-contact-item
-        *ngFor="let contact of contacts | contactsFilter:searchedTerm"
-        [contact]="contact"
+      <shopping-list-product-item
+        *ngFor="let product of products | productsFilter:searchedTerm"
+        [product]="product"
         dnd-draggable
         [dragEnabled]="true"
-        [dragData]="contact"
-        [dropZones]="['contactGroup']"
-        ></shopping-list-contact-item>
+        [dragData]="product"
+        [dropZones]="['productGroup']"
+        ></shopping-list-product-item>
     </div>
   </div>
 
