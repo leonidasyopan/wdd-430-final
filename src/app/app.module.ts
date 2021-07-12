@@ -12,6 +12,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ProductAddComponent } from './products/product-add/product-add.component';
 import { ProductsFilterPipe } from './products/products-filter.pipe';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ProductsFilterPipe } from './products/products-filter.pipe';
     ProductDetailComponent,
     ProductItemComponent,
     ProductEditComponent,
+    ProductAddComponent,
     ProductsFilterPipe
   ],
   imports: [

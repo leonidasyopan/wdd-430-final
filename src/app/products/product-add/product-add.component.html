@@ -1,0 +1,93 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="product-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <input
+              placeholder="Product Name *"
+              type="text"
+              id="name"
+              name="name"
+              [ngModel]="product?.name"
+              required
+              #name="ngModel"
+              class="form-control required"
+            />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <input
+              placeholder="Quantity *"
+              type="number"
+              id="quantity"
+              name="quantity"
+              [ngModel]="product?.quantity"
+              #quantity="ngModel"
+              class="form-control invalid"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <input
+              placeholder="Expected Price"
+              type="text"
+              id="expectedPrice"
+              name="expectedPrice"
+              [ngModel]="product?.expectedPrice"
+              #expectedPrice="ngModel"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <!-- <div class="col-md-3">
+          <div class="form-group">
+            <input
+              placeholder="Actual Price"
+              type="text"
+              id="actualPrice"
+              name="actualPrice"
+              [ngModel]="product?.actualPrice"
+              #actualPrice="ngModel"
+              class="form-control"
+            />
+          </div>
+        </div> -->
+        <div class="col-md-8">
+          <div class="form-group">
+            <textarea
+              id="description"
+              name="description"
+              [ngModel]="product?.description"
+              #description="ngModel"
+              class="form-control"
+              placeholder="Description"
+              style="width: 100%; height: 75px;"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-md-4 btn-toolbar buttons-positioning">
+          <button class="btn btn-primary" type="button" (click)="onCancel()">
+            Cancel
+          </button>
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!name.valid"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+
+      <div
+        *ngIf="(!name.valid && name.touched) || (!quantity.valid && quantity.touched)"
+        class="alert alert-danger"
+      >
+        <p>The Name and Quantity fields are required.</p>
+      </div>
+    </form>
+  </div>
+</div>
