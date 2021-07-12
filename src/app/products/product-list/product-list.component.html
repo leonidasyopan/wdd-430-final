@@ -2,20 +2,20 @@
 
 <div class="panel panel-default">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
-            <span class="title pad-left-right">Products</span>
-          </div>
-          <div class="row">
-            <div class="input-group pull-left pad-left-right col-xs-7">
+            <div class="col-md-5">
+              <span class="title pad-left-right">Products</span>
+            </div>
+            <div class="input-group pull-left pad-left-right col-md-7">
               <input
                 type="text"
                 #searchBox
                 (keyup)="search(searchBox.value)"
                 class="form-control"
-                placeholder="Enter a search value"
+                placeholder="Search product by name"
               >
               <i class="fa fa-search"></i>
             </div>
@@ -28,16 +28,14 @@
     </div>
   </div>
   <div class="panel-body">
-    <div class="center-panel">
-      <shopping-list-product-item
-        *ngFor="let product of products | productsFilter:searchedTerm"
-        [product]="product"
-        dnd-draggable
-        [dragEnabled]="true"
-        [dragData]="product"
-        [dropZones]="['productGroup']"
-        ></shopping-list-product-item>
-    </div>
+    <shopping-list-product-item
+      *ngFor="let product of products | productsFilter:searchedTerm"
+      [product]="product"
+      dnd-draggable
+      [dragEnabled]="true"
+      [dragData]="product"
+      [dropZones]="['productGroup']"
+      ></shopping-list-product-item>
   </div>
 
 </div>
