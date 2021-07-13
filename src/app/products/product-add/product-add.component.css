@@ -1,9 +1,13 @@
+.panel-body {
+  background: #acd1e9;
+}
+
 .required.ng-invalid {
-  border: 1px solid red;
+  border: 1px solid #e8d0a9;
 }
 
 .invalid.ng-invalid.ng-dirty {
-  border: 1px solid red;
+  border: 1px solid #e8d0a9;
 }
 
 .required.ng-untouched,

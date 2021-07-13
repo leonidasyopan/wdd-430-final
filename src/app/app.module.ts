@@ -5,7 +5,6 @@ import { DndModule } from 'ng2-dnd';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
@@ -18,7 +17,6 @@ import { ProductsFilterPipe } from './products/products-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     ProductsComponent,
     ProductListComponent,
     ProductDetailComponent,
