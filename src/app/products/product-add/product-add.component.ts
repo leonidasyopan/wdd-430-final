@@ -39,16 +39,8 @@ export class ProductAddComponent implements OnInit {
           if(!this.originalProduct) return;
 
           this.product = JSON.parse(JSON.stringify(this.originalProduct));
-
-          // if(this.product.group?.length > 0) {
-          //   this.groupProducts = JSON.parse(JSON.stringify(this.product.group));
-          // }
         }
       )
-  }
-
-  onCancel() {
-    this.router.navigate(['/products']);
   }
 
   onSubmit(form: NgForm) {

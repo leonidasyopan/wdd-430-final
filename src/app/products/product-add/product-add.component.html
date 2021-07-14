@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form id="product-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form id="product-edit" (ngSubmit)="onSubmit(f); f.resetForm()" #f="ngForm">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -20,7 +20,7 @@
           <div class="form-group">
             <input
               placeholder="Quantity *"
-              type="number"
+              type="text"
               id="quantity"
               name="quantity"
               [ngModel]="product?.quantity"
@@ -42,19 +42,6 @@
             />
           </div>
         </div>
-        <!-- <div class="col-md-3">
-          <div class="form-group">
-            <input
-              placeholder="Actual Price"
-              type="text"
-              id="actualPrice"
-              name="actualPrice"
-              [ngModel]="product?.actualPrice"
-              #actualPrice="ngModel"
-              class="form-control"
-            />
-          </div>
-        </div> -->
         <div class="col-md-8">
           <div class="form-group">
             <textarea
@@ -69,7 +56,7 @@
           </div>
         </div>
         <div class="col-md-4 btn-toolbar buttons-positioning">
-          <button class="btn btn-dark" type="button" (click)="onCancel()">
+          <button class="btn btn-danger" type="button" (click)="f.resetForm()">
             Cancel
           </button>
           <button

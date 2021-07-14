@@ -39,10 +39,6 @@ export class ProductEditComponent implements OnInit {
           if(!this.originalProduct) return;
 
           this.product = JSON.parse(JSON.stringify(this.originalProduct));
-
-          // if(this.product.group?.length > 0) {
-          //   this.groupProducts = JSON.parse(JSON.stringify(this.product.group));
-          // }
         }
       )
   }
