@@ -1,3 +1,10 @@
 .margintop {
   margin-top: 50px;
 }
+
+h1 {
+  margin-bottom: 50px;
+  font-size: 4em;
+  color: #2b6777;
+  font-weight: 900;
+}
