@@ -1,29 +1,16 @@
-section.conctact-list-box {
-  border: 1px solid #ddd;
-}
-
-header {
-  background: #f8f8f8;
-  padding: 10px 15px;
-}
-
-.header-image-and-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.panel-heading {
+  background-color: #2b6777;
 }
 
 h3 {
   font-weight: bold;
+  padding-left: 13px;
   margin: 15px 0;
+  color: #fff;
 }
 
-p {
-  margin: 3px 0;
-}
-
-.row {
-  padding: 10px 15px 10px 15px;
+.crud-buttons {
+  margin-top: 10px;
 }
 
 a {

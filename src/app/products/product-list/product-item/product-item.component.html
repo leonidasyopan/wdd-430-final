@@ -4,13 +4,18 @@
   class="list-group-item clearfix"
   (click)="onSelected(); $event.preventDefault()"
 >
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ product?.name }}</h4>
-  </div>
-  <div>
-    <p>{{ product?.description }} </p>
-    <p>{{ product?.quantity }} </p>
-    <p>{{ product?.expectedPrice }} </p>
-    <p>{{ product?.actualPrice }} </p>
+  <div class="row">
+    <div class="col-md-6">
+      <p>{{ product?.name ? product?.name : "-" }} </p>
+    </div>
+    <div class="col-md-2" align="center">
+      <p>{{ product?.quantity ? product?.quantity : "-" }} </p>
+    </div>
+    <div class="col-md-2" align="center">
+      <p>{{ product?.expectedPrice ? product?.expectedPrice : "-" }} </p>
+    </div>
+    <div class="col-md-2" align="center">
+      <p>{{ product?.actualPrice ? product?.actualPrice : "-" }} </p>
+    </div>
   </div>
 </a>

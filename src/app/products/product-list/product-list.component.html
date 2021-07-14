@@ -19,15 +19,26 @@
               >
               <i class="fa fa-search"></i>
             </div>
-            <!-- <div class="pull-right pad-left-right">
-              <a class="btn btn-success" [routerLink]="['new']">New Product</a>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="panel-body">
+    <div class="row products-titles">
+      <div class="col-md-6">
+        <p>Product</p>
+      </div>
+      <div class="col-md-2" align="center">
+        <p>Quantity</p>
+      </div>
+      <div class="col-md-2" align="center">
+        <p>Expected Price</p>
+      </div>
+      <div class="col-md-2" align="center">
+        <p>Actual Price</p>
+      </div>
+    </div>
     <shopping-list-product-item
       *ngFor="let product of products | productsFilter:searchedTerm"
       [product]="product"

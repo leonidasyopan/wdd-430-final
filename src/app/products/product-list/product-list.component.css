@@ -1,18 +1,38 @@
+.panel-heading {
+  background-color: #2b6777;
+  padding-top: 30px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+span {
+  color: #fff;
+}
+
+.products-titles {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.products-titles div:nth-child(1) {
+  padding-left: 32px;
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: bold;
 }
 
 .pad-left-right {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 15px;
+  padding-right: 30px;
 }
 
 i {
   width: 2px;
   position: relative;
   top: -37px;
-  left: 380px;
+  left: 350px;
   font-size: 20px;
   line-height: 40px;
   cursor: pointer;
